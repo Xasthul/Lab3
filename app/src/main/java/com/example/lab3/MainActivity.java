@@ -100,13 +100,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnSignChangeClick(View view){
-        if (resultEditText.getText().toString().endsWith("-")) {
+        if (resultEditText.getText().toString().startsWith("-")) {
             String text = resultEditText.getText().toString();
-            resultEditText.setText(text.substring(0, text.length() - 1));
-            addText("+");
+            resultEditText.setText(text.substring(1, text.length()));
         }
         else {
+            String text = resultEditText.getText().toString();
+            resultEditText.setText("");
             addText("-");
+            addText(text);
         }
     }
 
